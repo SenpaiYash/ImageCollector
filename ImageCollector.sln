@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCollector.API", "ImageCollector.API\ImageCollector.API.csproj", "{19434042-C970-4751-9932-AA74F8BA5EC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCollector.Application", "ImageCollector.Application\ImageCollector.Application.csproj", "{CC2AABCA-48B8-4FA1-9EC0-14F51EE592C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCollector.Domain", "ImageCollector.Domain\ImageCollector.Domain.csproj", "{307BEFCB-FD69-47DF-9F1E-3F9F3EA5753F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCollector.Tests", "ImageCollector.Tests\ImageCollector.Tests.csproj", "{DE396AC9-D1C1-4BED-A8E9-772D96A690A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCollector.Infrastructure", "ImageCollectot.Infrastructure\ImageCollector.Infrastructure.csproj", "{2F4BEE0E-56DE-450B-A46A-D0ED4EB04B5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCollector.UI", "ImageCollector.UI\ImageCollector.UI.csproj", "{00D1F80A-124C-4BEF-BB9B-59446C55ABCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19434042-C970-4751-9932-AA74F8BA5EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19434042-C970-4751-9932-AA74F8BA5EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19434042-C970-4751-9932-AA74F8BA5EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19434042-C970-4751-9932-AA74F8BA5EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2AABCA-48B8-4FA1-9EC0-14F51EE592C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2AABCA-48B8-4FA1-9EC0-14F51EE592C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2AABCA-48B8-4FA1-9EC0-14F51EE592C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2AABCA-48B8-4FA1-9EC0-14F51EE592C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{307BEFCB-FD69-47DF-9F1E-3F9F3EA5753F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{307BEFCB-FD69-47DF-9F1E-3F9F3EA5753F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{307BEFCB-FD69-47DF-9F1E-3F9F3EA5753F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{307BEFCB-FD69-47DF-9F1E-3F9F3EA5753F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE396AC9-D1C1-4BED-A8E9-772D96A690A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE396AC9-D1C1-4BED-A8E9-772D96A690A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE396AC9-D1C1-4BED-A8E9-772D96A690A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE396AC9-D1C1-4BED-A8E9-772D96A690A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4BEE0E-56DE-450B-A46A-D0ED4EB04B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4BEE0E-56DE-450B-A46A-D0ED4EB04B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4BEE0E-56DE-450B-A46A-D0ED4EB04B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4BEE0E-56DE-450B-A46A-D0ED4EB04B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D1F80A-124C-4BEF-BB9B-59446C55ABCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D1F80A-124C-4BEF-BB9B-59446C55ABCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D1F80A-124C-4BEF-BB9B-59446C55ABCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D1F80A-124C-4BEF-BB9B-59446C55ABCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E6339D8-2988-4A70-8B3D-BB5023A7591C}
+	EndGlobalSection
+EndGlobal
