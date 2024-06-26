@@ -43,6 +43,7 @@ builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<FourSquareService>();  
 builder.Services.AddScoped<FlickrService>();  
+builder.Services.AddScoped<LocationService>();
 
 
 builder.Services.AddControllers();
