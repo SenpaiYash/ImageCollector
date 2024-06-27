@@ -21,13 +21,12 @@
     <script>
         function search() {
             var location = $('#searchInput').val();
-            var token = localStorage.getItem('jwtToken');
+            var token = getJwtToken();
 
             $.ajax({
-                url: '/api/image/' + location,
+                url: 'https://localhost:5001/api/image/' + location,
                 type: 'GET',
                 headers: { 'Authorization': 'Bearer ' + token },
-                data: { page: 1, pageSize: 10 },
                 success: function (data) {
                     displayImages(data.data);
                     setupPagination(data.totalPages);
@@ -61,13 +60,12 @@
 
         function searchPage(page) {
             var location = $('#searchInput').val();
-            var token = localStorage.getItem('jwtToken');
+            var token = getJwtToken();
 
             $.ajax({
-                url: '/api/image/' + location,
+                url: 'https://localhost:5001/api/image/' + location + '?page=' + page + '&pageSize=10',
                 type: 'GET',
                 headers: { 'Authorization': 'Bearer ' + token },
-                data: { page: page, pageSize: 10 },
                 success: function (data) {
                     displayImages(data.data);
                 },
@@ -75,6 +73,17 @@
                     alert('Error fetching images');
                 }
             });
+        }
+
+        function getJwtToken() {
+            return localStorage.getItem('jwtToken') || getCookie('jwtToken');
+        }
+
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
         }
     </script>
 }
