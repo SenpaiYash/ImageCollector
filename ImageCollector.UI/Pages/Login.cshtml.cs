@@ -24,6 +24,11 @@ namespace ImageCollector.UI.Pages
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public void OnGet()
+        {
+            
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -35,7 +40,7 @@ namespace ImageCollector.UI.Pages
             var httpClient = _httpClientFactory.CreateClient();
             var content = new StringContent(JsonSerializer.Serialize(loginData), Encoding.UTF8, "application/json");
 
-            var response = await httpClient.PostAsync("https://localhost:5001/api/account/login", content);
+            var response = await httpClient.PostAsync("https://localhost:7140/api/account/login", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -43,7 +48,7 @@ namespace ImageCollector.UI.Pages
                 var jsonDocument = JsonDocument.Parse(responseContent);
                 var token = jsonDocument.RootElement.GetProperty("token").GetString();
 
-                // Store the token in a cookie or local storage
+                // Store the token in a cookie or local storage               
                 HttpContext.Response.Cookies.Append("jwtToken", token, new Microsoft.AspNetCore.Http.CookieOptions
                 {
                     HttpOnly = true,

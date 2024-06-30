@@ -5,19 +5,24 @@
 }
 <div class="container">
     <h2>Login</h2>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Username"></label>
         <input asp-for="Username" class="form-control" />
+         <span asp-validation-for="Username" class="text-danger" />
     </div>
     <div class="form-group">
         <label asp-for="Password"></label>
         <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger" />
     </div>
-    <button class="btn btn-primary" onclick="login()">Login</button>
+    <button type="submit" class="btn btn-primary">Login</button>
+    </form>
 </div>
 
 @section Scripts {
-    <script src="~/lib/jquery/jquery.min.js"></script>
+   @*  <script src="~/lib/jquery/jquery.min.js"></script>
     <script>
         function login() {
             var username = $('#Username').val();
@@ -37,5 +42,5 @@
                 }
             });
         }
-    </script>
+    </script> *@
 }

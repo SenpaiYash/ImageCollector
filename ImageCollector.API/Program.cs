@@ -1,3 +1,4 @@
+using ImageCollector.API.Models;
 using ImageCollector.Application.Services;
 using ImageCollector.Domain.Entities;
 using ImageCollector.Domain.Interfaces;
@@ -6,6 +7,7 @@ using ImageCollector.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -53,6 +55,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -62,14 +65,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
-
-app.UseAuthorization();
 
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
+
+ await app.SeedDatabaseAsync();
 
 app.Run();

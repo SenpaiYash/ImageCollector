@@ -22,9 +22,9 @@
         function search() {
             var location = $('#searchInput').val();
             var token = getJwtToken();
-
+            alert(token);
             $.ajax({
-                url: 'https://localhost:5001/api/image/' + location,
+                url: 'https://localhost:7140/api/image/' + location,
                 type: 'GET',
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (data) {
@@ -61,9 +61,9 @@
         function searchPage(page) {
             var location = $('#searchInput').val();
             var token = getJwtToken();
-
+            alert(token);
             $.ajax({
-                url: 'https://localhost:5001/api/image/' + location + '?page=' + page + '&pageSize=10',
+                url: 'https://localhost:7140/api/image/' + location + '?page=' + page + '&pageSize=10',
                 type: 'GET',
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (data) {
@@ -76,7 +76,7 @@
         }
 
         function getJwtToken() {
-            return localStorage.getItem('jwtToken') || getCookie('jwtToken');
+            return getCookie('jwtToken');
         }
 
         function getCookie(name) {
