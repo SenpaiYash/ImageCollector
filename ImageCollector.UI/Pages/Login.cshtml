@@ -22,25 +22,5 @@
 </div>
 
 @section Scripts {
-   @*  <script src="~/lib/jquery/jquery.min.js"></script>
-    <script>
-        function login() {
-            var username = $('#Username').val();
-            var password = $('#Password').val();
-
-            $.ajax({
-                url: '@Url.Action("Login", "Account")',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ username: username, password: password }),
-                success: function (data) {
-                    localStorage.setItem('token', data.token);
-                    window.location.href = '/';
-                },
-                error: function () {
-                    alert('Login failed');
-                }
-            });
-        }
-    </script> *@
+ 
 }
