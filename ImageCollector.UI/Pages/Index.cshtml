@@ -6,84 +6,32 @@
 
 <div class="container">
     <h2>Search by Location</h2>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by location..." id="searchInput">
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="search()">Search</button>
+    <form method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by location..." asp-for="Location" />
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
         </div>
+    </form>
+    <div class="row">
+        @foreach (var image in Model.Images)
+        {
+            <div class="col-md-3 image-item">
+                <img src="@image.ImageUrl" class="img-fluid" alt="@image.Description" />
+                <p>@image.Description</p>
+            </div>
+        }
     </div>
-    <div id="imageList" class="row"></div>
-    <div id="pagination" class="d-flex justify-content-center mt-4"></div>
+    <div class="d-flex justify-content-center mt-4">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <button class="btn btn-secondary mx-1" type="button" onclick="window.location.href='?page=@i'">@i</button>
+        }
+    </div>
 </div>
 
 @section Scripts {
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <script>
-        function search() {
-            var location = $('#searchInput').val();
-            var token = getJwtToken();
-            alert(token);
-            $.ajax({
-                url: 'https://localhost:7140/api/image/' + location,
-                type: 'GET',
-                headers: { 'Authorization': 'Bearer ' + token },
-                success: function (data) {
-                    displayImages(data.data);
-                    setupPagination(data.totalPages);
-                },
-                error: function () {
-                    alert('Error fetching images');
-                }
-            });
-        }
-
-        function displayImages(images) {
-            $('#imageList').empty();
-            images.forEach(function (image) {
-                $('#imageList').append(
-                    `<div class="col-md-3 image-item">
-                                <img src="${image.imageUrl}" class="img-fluid" alt="${image.description}">
-                                <p>${image.description}</p>
-                            </div>`
-                );
-            });
-        }
-
-        function setupPagination(totalPages) {
-            $('#pagination').empty();
-            for (let i = 1; i <= totalPages; i++) {
-                $('#pagination').append(
-                    `<button class="btn btn-secondary mx-1" onclick="searchPage(${i})">${i}</button>`
-                );
-            }
-        }
-
-        function searchPage(page) {
-            var location = $('#searchInput').val();
-            var token = getJwtToken();
-            alert(token);
-            $.ajax({
-                url: 'https://localhost:7140/api/image/' + location + '?page=' + page + '&pageSize=10',
-                type: 'GET',
-                headers: { 'Authorization': 'Bearer ' + token },
-                success: function (data) {
-                    displayImages(data.data);
-                },
-                error: function () {
-                    alert('Error fetching images');
-                }
-            });
-        }
-
-        function getJwtToken() {
-            return getCookie('jwtToken');
-        }
-
-        function getCookie(name) {
-            let matches = document.cookie.match(new RegExp(
-                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-            ));
-            return matches ? decodeURIComponent(matches[1]) : undefined;
-        }
-    </script>
+    <partial name="_ValidationScriptsPartial" />
+    
 }
