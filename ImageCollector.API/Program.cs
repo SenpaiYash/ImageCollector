@@ -41,9 +41,9 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
 builder.Services.AddScoped<ILocationRepository, LocationRepository>();
-builder.Services.AddScoped<ImageService>();
+//builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<FourSquareService>();  
-builder.Services.AddScoped<FlickrService>();  
+builder.Services.AddScoped<IFlickrService,FlickrService>();  
 builder.Services.AddScoped<LocationService>();
 
 

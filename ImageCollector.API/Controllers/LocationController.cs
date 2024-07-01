@@ -23,7 +23,8 @@ namespace ImageCollector.API.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetLocations()
-        {
+        {   
+
             var userId = _userManager.GetUserId(User);
             var locations = await _locationService.GetAllLocationsAsync(userId);
             return Ok(locations);

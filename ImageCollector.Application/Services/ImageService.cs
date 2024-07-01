@@ -55,27 +55,7 @@ namespace ImageCollector.Application.Services
                 Description = addedImage.Description
             };
         }
-
-        public async Task FetchAndStoreImagesAsync(string locationName)
-        {
-            var locationId = await _fourSquareService.GetLocationIdAsync(locationName);
-            var images = await _flickrService.GetImagesAsync(locationId);
-
-            foreach (var image in images)
-            {
-                var imageUrl = $"https://farm{image["farm"]}.staticflickr.com/{image["server"]}/{image["id"]}_{image["secret"]}.jpg";
-                if (!await _imageRepository.ExistsAsync(imageUrl))
-                {
-                    var newImage = new Image
-                    {
-                        Location = locationName,
-                        ImageUrl = imageUrl,
-                        Description = image["title"].ToString(),
-                        DateAdded = DateTime.UtcNow
-                    };
-                    await _imageRepository.AddAsync(newImage);
-                }
-            }
-        }
+                
+        
     }
 }
